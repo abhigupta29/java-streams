@@ -13,13 +13,27 @@ public class Lecture6 {
   @Test
   public void findAny() throws Exception {
     Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    Integer any = Arrays.stream(numbers)
+            .filter(num -> num < 10)
+            .findAny()
+            .orElse(0);
 
+    System.out.println(any);
+
+//    findAny() is non-deterministic
   }
 
   @Test
   public void findFirst() throws Exception {
     Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    Integer first = Arrays.stream(numbers)
+            .filter(num -> num < 10)
+            .findFirst()
+            .orElse(0);
 
+    System.out.println(first);
+
+//    findFirst() is deterministic
   }
 }
 
